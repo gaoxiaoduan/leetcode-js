@@ -1,0 +1,36 @@
+/*
+ * @lc app=leetcode.cn id=494 lang=javascript
+ *
+ * [494] 目标和
+ */
+
+// @lc code=start
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var findTargetSumWays = function (nums, target) {
+  if (nums.length === 0) return 0;
+
+  let memo = new Map();
+  const dp = (nums, i, remain) => {
+    if (i === nums.length) {
+      // 当剩余数为0的时候，说明成功
+      if (remain === 0) return 1;
+      // 否则失败
+      return 0;
+    }
+    const key = i + "," + remain;
+    if (memo.has(key)) return memo.get(key);
+
+    let res =
+      dp(nums, i + 1, remain - nums[i]) + dp(nums, i + 1, remain + nums[i]);
+
+    memo.set(key, res);
+    return res;
+  };
+
+  return dp(nums, 0, target);
+};
+// @lc code=end
