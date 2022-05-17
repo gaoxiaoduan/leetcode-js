@@ -1,0 +1,60 @@
+/*
+ * @lc app=leetcode.cn id=449 lang=javascript
+ *
+ * [449] 序列化和反序列化二叉搜索树
+ */
+
+// @lc code=start
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+
+/**
+ * Encodes a tree to a single string.
+ *
+ * @param {TreeNode} root
+ * @return {string}
+ */
+var serialize = function (root) {
+  let tree = [];
+  const traverseTree = (root) => {
+    if (root === null) return;
+    tree.push(root.val);
+    traverseTree(root.left);
+    traverseTree(root.right);
+  };
+  traverseTree(root);
+  return tree.toString();
+};
+
+/**
+ * Decodes your encoded data to tree.
+ *
+ * @param {string} data
+ * @return {TreeNode}
+ */
+var deserialize = function (data) {
+  if (data.length === 0) return null;
+  const nodes = data.split(",");
+  const deserializeTree = (nodes, min, max) => {
+    if (nodes.length === 0) return null;
+    let rootVal = parseInt(nodes[0]);
+    if (rootVal < min || rootVal > max) return null;
+    nodes.shift();
+    const root = new TreeNode(rootVal);
+    root.left = deserializeTree(nodes, min, rootVal);
+    root.right = deserializeTree(nodes, rootVal, max);
+    return root;
+  };
+  return deserializeTree(nodes, -Infinity, Infinity);
+};
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
+// @lc code=end
