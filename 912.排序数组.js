@@ -67,3 +67,50 @@ var sortArray = function (nums) {
 //   return res.concat(left, right);
 // };
 // @lc code=end
+
+
+var sortArray = function (nums) {
+  quickSort(nums, 0, nums.length - 1);
+  return nums;
+};
+
+// // 快速排序
+// const quickSort = (nums, lo, hi) => {
+//   if (lo >= hi) return;
+
+//   // 对[lo,hi]根据p进行划分
+//   // nums[lo,p-1] <= nums[p] < nums[p,hi];
+//   const p = partition(nums, lo, hi);
+
+//   quickSort(nums, lo, p - 1);
+//   quickSort(nums, p + 1, hi);
+// }
+
+// // 对[lo,hi]进行区分
+// const partition = (nums, lo, hi) => {
+//   let p = nums[lo];
+//   let i = lo + 1, j = hi;
+//   while (i <= j) {
+//       while (i < hi && nums[i] <= p) {
+//           i++;
+//           // 结束时，nums[i] > p
+//       }
+//       while (j > lo && nums[j] > p) {
+//           j--;
+//           // 结束时，nums[j] <= p;
+//       }
+//       // 此时 nums[i] <= p < nums[j]
+//       if (i >= j) {
+//           break;
+//       }
+//       swap(nums, i, j);
+//   }
+//   swap(nums, lo, j);
+//   return j;
+// }
+
+// const swap = (nums, i, j) => {
+//   const temp = nums[i];
+//   nums[i] = nums[j];
+//   nums[j] = temp;
+// }
