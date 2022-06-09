@@ -12,30 +12,29 @@
  */
 // 从上向下递归+备忘录消除子问题
 var minDistance = function (word1, word2) {
-  let memo = new Map();
+  const m = word1.length,
+    n = word2.length;
+  const memo = Array.from({ length: m }).map(() =>
+    Array.from({ length: n }).fill(-1)
+  );
 
   const dp = (i, j) => {
-    if (memo.has(`(${i}, ${j})`)) {
-      return memo.get(`(${i}, ${j})`);
-    }
-
     // base case
     if (i === -1) return j + 1;
     if (j === -1) return i + 1;
 
+    if (memo[i][j] !== -1) return memo[i][j];
+
     if (word1.charAt(i) === word2.charAt(j)) {
-      memo.set(`(${i}, ${j})`, dp(i - 1, j - 1)); // 跳过，啥都不做
+      memo[i][j] = dp(i - 1, j - 1); // 跳过，啥都不做
     } else {
-      memo.set(
-        `(${i}, ${j})`,
-        Math.min(
-          dp(i, j - 1) + 1, // 插入
-          dp(i - 1, j) + 1, // 删除
-          dp(i - 1, j - 1) + 1 // 替换
-        )
+      memo[i][j] = Math.min(
+        dp(i, j - 1) + 1, // 插入
+        dp(i - 1, j) + 1, // 修改
+        dp(i - 1, j - 1) + 1 // 替换
       );
     }
-    return memo.get(`(${i}, ${j})`);
+    return memo[i][j];
   };
 
   return dp(word1.length - 1, word2.length - 1);
