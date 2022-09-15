@@ -1,0 +1,47 @@
+/*
+ * @lc app=leetcode.cn id=5 lang=javascript
+ *
+ * [5] 最长回文子串
+ */
+
+// @lc code=start
+/**
+ * @param {string} s
+ * @return {string}
+ */
+/**
+ * 时间复杂度 O(N^2)
+ * 空间复杂度 O(1)
+ * 思路（中心向外扩散的左右指针）
+ * - 回文指的就是正反念都一样的串
+ * - 我们可以根据这个特性使用左右指针共同向外扩散，来判断是否为一个回文串
+ * - 我们还要考虑到，回文串长度的奇偶性
+ * - 这里我们先编写一个函数，函数返回回文串，这里使用l，r两个函数，兼容了奇偶的情况
+ * - 然后遍历这个字符串，分别找奇数情况(i,i)下的回文串，和偶数情况(i,i+1)下的回文串
+ * - 然后保留最长的那一个回文串返回即可
+ */
+var longestPalindrome = function (s) {
+  if (s.length === 0 || s.length === 1) return s;
+  let res = "";
+  for (let i = 0; i < s.length; i++) {
+    // 以s[i]为中心
+    let res1 = palindrome(s, i, i);
+    // 以s[i]，s[i+1]为中心
+    let res2 = palindrome(s, i, i + 1);
+    res = res1.length > res.length ? res1 : res;
+    res = res2.length > res.length ? res2 : res;
+  }
+  return res;
+};
+
+// 在s中找出以s[l],s[r]为中心的回文串
+var palindrome = (s, l, r) => {
+  while (l >= 0 && r < s.length && s[l] === s[r]) {
+    l--;
+    r++;
+  }
+  // 返回以 s[l],s[r] 为中心的最长回文串
+  // 当whild循环结束的时候，l是少一个的，r是多一个的，由于substring的范围是[s,e）的，所以l需要+1，r刚好，所以不用操作
+  return s.substring(l + 1, r);
+};
+// @lc code=end
