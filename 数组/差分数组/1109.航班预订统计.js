@@ -1,0 +1,78 @@
+/*
+ * @lc app=leetcode.cn id=1109 lang=javascript
+ *
+ * [1109] 航班预订统计
+ */
+
+// @lc code=start
+
+/**
+ * @param {number[][]} bookings
+ * @param {number} n
+ * @return {number[]}
+/**
+ * 时间复杂度 O(2N)
+ * 空间复杂度 O(2N)
+ * 思路(差分数组)
+ * - 这个题目其实就是将一个长度为n的数组，全部初始化为0
+ * - 然后根据区间，同时增加值
+ * - 就是用差分数组来解，[i,j,val] 可以在i，j的范围内同时增加val
+ * - 难点在于正确构建差分数组
+ * - 1. 构建公式：diff[i] = nums[i] - nums[i-1]
+ * - 2. 还原公式：nums[i] = nums[i-1] + diff[i];
+ * - 3. increment公式，根据还原公式来看，diff[i] += val，就可以让nums[i,...]的值一起增加val
+ * - 然后在diff[j+1]处，将差缩小val，就可以让nums[i,j]的值同时增加val，也就是 diff[j+1] -=val;
+ * - 要注意的是：让j+1>= diff.length时，也就是说对nums[i]之后的所有元素全部增加val，所以就不用再给 diff数组减val了
+ */
+var corpFlightBookings = function (bookings, n) {
+  let nums = new Array(n).fill(0);
+  const df = new Diff(nums);
+  for (let item of bookings) {
+    const [i, j, val] = item;
+    // 这里i,j是从1开始的
+    // 转化成数组要-1
+    df.increment(i - 1, j - 1, val);
+  }
+  return df.result();
+};
+
+class Diff {
+  constructor(nums) {
+    this.nums = nums;
+    this.len = nums.length;
+    this.diff = [];
+    // nums: [ 8, 5, 3, 6, 2 ]
+    // diff: [ 8,-3,-2, 3,-4 ]
+    // 区间加减[i,j]，例如:nums[1,3]+3,就是diff[i]+3,diff[j+1]-3,经过还原后区间就整体加3了
+    // nums: [ 8, 5, 3, 6, 2 ] ==》还原后 [ 8, 8, 6, 9, 2 ]
+    // diff: [ 8,-3,-2, 3,-4 ] ==》操作后 [ 8, 0,-2, 3,-7 ]
+    //            ⬆       ⬆
+    //          -3+3     -4-3
+    //            0       -7
+    this.init();
+  }
+
+  init() {
+    this.diff[0] = this.nums[0];
+    for (let i = 1; i < this.len; i++) {
+      this.diff[i] = this.nums[i] - this.nums[i - 1];
+    }
+  }
+
+  result() {
+    this.nums[0] = this.diff[0];
+    for (let i = 1; i < this.len; i++) {
+      this.nums[i] = this.nums[i - 1] + this.diff[i];
+    }
+    return this.nums;
+  }
+
+  // 对nums[i,j]区间整体+val val可以是负数
+  increment(i, j, val) {
+    this.diff[i] += val;
+    if (j + 1 < this.len) {
+      this.diff[j + 1] -= val;
+    }
+  }
+}
+// @lc code=end
