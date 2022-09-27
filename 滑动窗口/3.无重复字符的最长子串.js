@@ -42,4 +42,27 @@ var lengthOfLongestSubstring = function (s) {
 
   return res;
 };
+
+var lengthOfLongestSubstring1 = function (s) {
+  let window = new Map();
+
+  let right = 0,
+    left = 0;
+  let res = 0;
+  while (right < s.length) {
+    let c1 = s[right];
+    right++;
+    // 更新数据
+    window.set(c1, window.has(c1) ? window.get(c1) + 1 : 1);
+    // 缩小窗口的条件
+    while (window.get(c1) > 1) {
+      let c2 = s[left];
+      left++;
+      // 更新数据
+      window.set(c2, window.get(c2) - 1);
+    }
+    res = Math.max(res, right - left);
+  }
+  return res;
+};
 // @lc code=end
