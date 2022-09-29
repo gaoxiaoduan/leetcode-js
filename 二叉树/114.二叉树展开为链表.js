@@ -17,22 +17,30 @@
  * @param {TreeNode} root
  * @return {void} Do not return anything, modify root in-place instead.
  */
+/**
+ * 时间复杂度 O(N)
+ * 空间复杂度 O(1)
+ * 思路
+ * - 分解子问题解法
+ * - 将 root 的左子树和右子树拉平
+ * - 将 root 的左子树替换成root的右子树，然后把原来的右子树，接到现在右子树的尾部
+ */
 var flatten = function (root) {
   if (root === null) return;
-
   flatten(root.left);
   flatten(root.right);
-  // 后序遍历，将左右子树展开为一个链表
+  // 后序遍历位置
   let left = root.left;
   let right = root.right;
 
-  // 将左子树放到右子树的位置
+  // 1.先将左子树清空
   root.left = null;
+  // 2.将原来左子树，替换到原来右子树的位置
   root.right = left;
 
-  // 将原来右子树接到现在右子树的后面
+  // 3.将原来的右子树接到现在右子树的后面
   let p = root;
-  while (p && p.right !== null) {
+  while (p.right !== null) {
     p = p.right;
   }
   p.right = right;
