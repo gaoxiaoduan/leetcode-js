@@ -1,0 +1,47 @@
+/*
+ * @lc app=leetcode.cn id=46 lang=javascript
+ *
+ * [46] 全排列
+ */
+
+// @lc code=start
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+/**
+ * 回溯算法
+ * 时间复杂度 O(N!) 1* 2 * 3 ... (N -1) * N
+ * 空间复杂度 O(N)
+ * 思路
+ * - 看成遍历一颗多叉树
+ * - 当遍历到叶子结点的时候，走过的路径就是一个排列结果
+ */
+var permute = function (nums) {
+  let res = [];
+  var backTrack = function (nums, track) {
+    if (nums.length === track.length) {
+      // 如果使用 res.push(track);
+      // track会被引用，回溯算法在撤销选择的时候，修改track的值，res中的track也会被修改掉！！！
+      res.push([...track]);
+      return;
+    }
+
+    for (let num of nums) {
+      // 跳过已经存在的
+      if (track.includes(num)) {
+        continue;
+      }
+      // 做选择
+      track.push(num);
+      backTrack(nums, track);
+      // 撤销选择
+      track.pop();
+    }
+  };
+
+  backTrack(nums, []);
+  return res;
+};
+
+// @lc code=end
