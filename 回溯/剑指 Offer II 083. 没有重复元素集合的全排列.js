@@ -4,6 +4,7 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
+// 元素【无重】【不可复选】
 var permute = function (nums) {
   let res = [];
 

@@ -10,6 +10,7 @@
  * @param {number} target
  * @return {number[][]}
  */
+// 元素【无重】【可复选】
 var combinationSum = function (candidates, target) {
   const res = [];
   let targetSum = 0;

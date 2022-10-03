@@ -10,7 +10,7 @@
  * @param {number} target
  * @return {number[][]}
  */
-// 元素可重，不可复选
+// 元素【可重】【不可复选】
 // 注意剪枝
 var combinationSum2 = function (candidates, target) {
   const res = [];
