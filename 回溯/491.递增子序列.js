@@ -1,0 +1,43 @@
+/*
+ * @lc app=leetcode.cn id=491 lang=javascript
+ *
+ * [491] 递增子序列
+ */
+
+// @lc code=start
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+
+// 元素【可重】【不可复选】
+// 注意剪枝
+/**
+ * 这道题和40题很像
+ * 不过增加了一个条件：元素必须是递增的，所以我们需要添加一个， track[last] > nums[i]进行过滤，保证元素递增
+ * 还有一点，在40题中，我们对nums进行排序，进行剪枝，这里不能修改原数组，我们使用set剪枝，避免使用重复的元素
+ */
+var findSubsequences = function (nums) {
+  const res = [];
+  const backTrack = (start, track) => {
+    // base case
+    if (track.length >= 2) {
+      res.push([...track]);
+    }
+    const set = new Set(); // 在一个递归中去重
+    for (let i = start; i < nums.length; i++) {
+      // 保证track的结果是升序的
+      if (track.length !== 0 && track[track.length - 1] > nums[i]) continue;
+      if (set.has(nums[i])) continue; // 保证不重复使用相同的元素
+      // 做选择
+      track.push(nums[i]);
+      set.add(nums[i]);
+      backTrack(i + 1, track);
+      // 撤销选择
+      track.pop();
+    }
+  };
+  backTrack(0, []);
+  return res;
+};
+// @lc code=end
