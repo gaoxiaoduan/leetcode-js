@@ -14,10 +14,10 @@
 var isInterleave = function (s1, s2, s3) {
   const s1Len = s1.length,
     s2Len = s2.length;
-  // 当s1+s2的长度与s3的长度不相等，直接返回fasle
+  // 当s1+s2的长度与s3的长度不相等，直接返回false
   if (s1Len + s2Len !== s3.length) return false;
 
-  // -1表示未计算，1表示ture，0表示false
+  // -1表示未计算，1表示true，0表示false
   const memo = new Array(s1Len + 1)
     .fill(-1)
     .map((_) => new Array(s2Len + 1).fill(-1));
