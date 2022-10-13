@@ -5,17 +5,89 @@
  */
 
 // @lc code=start
+// !!! react中对任务调度的优先级使用最小堆
+class MinHeap {
+  constructor() {
+    this.heap = [];
+  }
+
+  getParentIndex(index) {
+    // return Math.floor((index - 1) / 2);
+    return (index - 1) >> 1;
+  }
+
+  getLeftIndex(index) {
+    return index * 2 + 1;
+  }
+
+  getRightIndex(index) {
+    return this.getLeftIndex(index) + 1;
+  }
+
+  swap(i, j) {
+    [this.heap[j], this.heap[i]] = [this.heap[i], this.heap[j]];
+  }
+
+  insert(val) {
+    this.heap.push(val);
+    this.shiftUp(this.heap.length - 1);
+  }
+
+  shiftUp(index) {
+    if (index === 0) return;
+    const parentIndex = this.getParentIndex(index);
+    if (this.heap[index] < this.heap[parentIndex]) {
+      this.swap(index, parentIndex);
+      this.shiftUp(parentIndex);
+    }
+  }
+
+  pop() {
+    const last = this.heap.pop();
+    // 若heap只有一个元素，直接pop即可
+    if (this.heap.length !== 0) {
+      // 若heap还有内容
+      this.heap[0] = last; // 使用last元素直接替换掉heap[0]相当于删除
+      this.shiftDown(0);
+    }
+  }
+
+  shiftDown(index) {
+    const leftIndex = this.getLeftIndex(index);
+    const rightIndex = this.getRightIndex(index);
+    if (this.heap[index] > this.heap[leftIndex]) {
+      this.swap(index, leftIndex);
+      this.shiftDown(leftIndex);
+    }
+
+    if (this.heap[index] > this.heap[rightIndex]) {
+      this.swap(index, rightIndex);
+      this.shiftDown(rightIndex);
+    }
+  }
+
+  peek() {
+    return this.heap[0];
+  }
+
+  size() {
+    return this.heap.length;
+  }
+}
 /**
  * @param {number} k
  * @param {number[]} nums
  */
+// 可以理解为找出世界上第k厉害的人
 var KthLargest = function (k, nums) {
   this.k = k;
   this.minHeap = new MinHeap();
+
   for (const item of nums) {
-    this.minHeap.insert(item);
+    this.minHeap.insert(item); // 插入元素，最小堆内会排序
     if (this.minHeap.size() > this.k) {
-      this.minHeap.pop();
+      // 堆内元素多于k
+      this.minHeap.pop(); // 将最小的元素移除
     }
   }
 };
@@ -31,71 +103,6 @@ KthLargest.prototype.add = function (val) {
   }
   return this.minHeap.peek();
 };
-
-// 构建一个最小堆
-class MinHeap {
-  constructor() {
-    this.heap = [];
-  }
-
-  getPartentIndex(i) {
-    return (i - 1) >> 1;
-  }
-
-  getLeftIndex(i) {
-    return i * 2 + 1;
-  }
-
-  getRightIndex(i) {
-    return i * 2 + 2;
-  }
-
-  swap(i, j) {
-    let temp = this.heap[j];
-    this.heap[j] = this.heap[i];
-    this.heap[i] = temp;
-  }
-
-  shiftUp(index) {
-    if (index === 0) return;
-    let partentIndex = this.getPartentIndex(index);
-    if (this.heap[partentIndex] > this.heap[index]) {
-      this.swap(partentIndex, index);
-      this.shiftUp(partentIndex);
-    }
-  }
-
-  shiftDown(index) {
-    let leftIndex = this.getLeftIndex(index);
-    let rightIndex = this.getRightIndex(index);
-    if (this.heap[leftIndex] < this.heap[index]) {
-      this.swap(leftIndex, index);
-      this.shiftDown(leftIndex);
-    }
-    if (this.heap[rightIndex] < this.heap[index]) {
-      this.swap(rightIndex, index);
-      this.shiftDown(rightIndex);
-    }
-  }
-
-  insert(val) {
-    this.heap.push(val);
-    this.shiftUp(this.heap.length - 1);
-  }
-
-  pop() {
-    this.heap[0] = this.heap.pop();
-    this.shiftDown(0);
-  }
-
-  size() {
-    return this.heap.length;
-  }
-
-  peek() {
-    return this.heap[0];
-  }
-}
 
 /**
  * Your KthLargest object will be instantiated and called as such:
