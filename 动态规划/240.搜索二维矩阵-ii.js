@@ -1,0 +1,38 @@
+/*
+ * @lc app=leetcode.cn id=240 lang=javascript
+ *
+ * [240] 搜索二维矩阵 II
+ */
+
+// @lc code=start
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+// 思路
+// 根据 每行从左到右递增， 从上到下递减的规律
+// 左上角最大，右上角最小
+// 假如从左上角开始，不管向哪个方向走，元素都是在递增的
+// 所以我们从右上角出发更好一点，从上到下递增，从右到左递减
+var searchMatrix = function (matrix, target) {
+  const m = matrix.length,
+    n = matrix[0].length;
+
+  // 初始化i,j为右上角元素
+  let i = 0,
+    j = n - 1;
+  while (i < m && j >= 0) {
+    if (matrix[i][j] === target) {
+      return true;
+    } else if (matrix[i][j] > target) {
+      // 需要小一点，j--
+      j--;
+    } else if (matrix[i][j] < target) {
+      // 需要大一点，i++
+      i++;
+    }
+  }
+  return false;
+};
+// @lc code=end
