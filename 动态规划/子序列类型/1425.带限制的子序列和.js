@@ -1,0 +1,34 @@
+/*
+ * @lc app=leetcode.cn id=1425 lang=javascript
+ *
+ * [1425] 带限制的子序列和
+ */
+
+// @lc code=start
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+// 基础动态规划
+// 时间复杂度高O(M * k) M表示数组长度
+var constrainedSubsetSum = function (nums, k) {
+  const len = nums.length;
+  if (len === 0) return 0;
+  const dp = new Array(len).fill(-Infinity);
+
+  // base case
+  dp[0] = nums[0];
+
+  for (let i = 1; i < len; i++) {
+    dp[i] = nums[i]; // base case
+    for (let t = 1; t <= k; t++) {
+      const j = i - t; // 区间[i-k,i] 的值都可以使用
+      if (j < 0) break; // 越界处理
+      dp[i] = Math.max(dp[i], dp[j] + nums[i]); // 转移方程
+    }
+  }
+  // 返回最值
+  return Math.max.apply(null, dp);
+};
+// @lc code=end
