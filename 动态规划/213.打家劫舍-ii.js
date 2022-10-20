@@ -1,0 +1,41 @@
+/*
+ * @lc app=leetcode.cn id=213 lang=javascript
+ *
+ * [213] 打家劫舍 II
+ */
+
+// @lc code=start
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+// 相对于198.打家劫舍，多了三种情况
+// - 1.两端都不抢
+// - 2.抢头不抢尾
+// - 3.抢尾不抢头
+// 在这三种情况下取最大金额，因为情况1相对于，剩下两种情况肯定更小，所以比较后两种情况就行
+var rob = function (nums) {
+  const n = nums.length;
+  if (n === 1) return nums[0];
+  const memo1 = new Array(n + 1).fill(-1);
+  const memo2 = new Array(n + 1).fill(-1);
+
+  const dp = (start, end, memo) => {
+    // base case
+    if (end <= start) return 0;
+    if (end === 1) return nums[0];
+    if (memo[end] !== -1) return memo[end];
+
+    memo[end] = Math.max(
+      dp(start, end - 1, memo), //不抢
+      dp(start, end - 2, memo) + nums[end - 1] // 抢
+    );
+    return memo[end];
+  };
+
+  const ignoreLast = dp(0, n - 1, memo1); // 不抢尾
+  const ignoreFast = dp(1, n, memo2); // 不抢头
+
+  return Math.max(ignoreLast, ignoreFast);
+};
+// @lc code=end
