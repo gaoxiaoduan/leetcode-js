@@ -23,4 +23,15 @@ var maxSubArray = function (nums) {
 
   return max;
 };
+
+// 优化时间复杂度 的dp数组解法
+var maxSubArray1 = function (nums) {
+  let max = 0;
+  let res = -Infinity;
+  for (const item of nums) {
+    max = Math.max(max + item, item); // 计算出i位置上的最大值
+    res = Math.max(max, res); // 找出[0...end]区间内 i位置上的最大值
+  }
+  return res;
+};
 // @lc code=end
