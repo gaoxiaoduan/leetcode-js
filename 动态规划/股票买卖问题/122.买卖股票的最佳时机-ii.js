@@ -1,20 +1,25 @@
 /*
- * @lc app=leetcode.cn id=121 lang=javascript
+ * @lc app=leetcode.cn id=122 lang=javascript
  *
- * [121] 买卖股票的最佳时机
+ * [122] 买卖股票的最佳时机 II
  */
 
-// 121:只能交易一次
+// 122:不限制交易次数
+// base case：
+// dp[-1][...][0] = dp[...][0][0] = 0
+// dp[-1][...][1] = dp[...][0][1] = -infinity
 
-// dp[i][1][0] = max(dp[i-1][1][0], dp[i-1][1][1] + prices[i])
-// dp[i][1][1] = max(dp[i-1][1][1], dp[i-1][0][0] - prices[i])
-//             = max(dp[i-1][1][1], -prices[i])
-// 解释：k = 0 的 base case，所以 dp[i-1][0][0] = 0。
+// 状态转移方程：
+// dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])
+// dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])
 
-// 现在发现 k 都是 1，不会改变，即 k 对状态转移已经没有影响了。
-// 可以进行进一步化简去掉所有 k：
+// 相对于121题，122不限制k的交易次数所以: k-1 和 k 是一样的
+// dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])
+// dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k][0] - prices[i])
+
+// 我们发现数组中的 k 已经不会改变了，也就是说不需要记录 k 这个状态了：
 // dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
-// dp[i][1] = max(dp[i-1][1], -prices[i])
+// dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i])
 
 // @lc code=start
 /**
@@ -39,8 +44,8 @@ var maxProfit1 = function (prices) {
     dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
 
     // 今天要 持有，有两种状态可以选择出最大利润
-    // 可以选择 Max(昨天持有的利润 或 进行买入 )
-    dp[i][1] = Math.max(dp[i - 1][1], -prices[i]);
+    // 可以选择 Max(昨天持有的利润 或 在昨天未持有的基础上 进行买入 )
+    dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]); // 重点
   }
 
   return dp[n - 1][0]; // 返回最后一天未持有的最大利润
@@ -60,7 +65,7 @@ var maxProfit = function (prices) {
 
     // 今天要 持有，有两种状态可以选择出最大利润
     // 可以选择 Max(昨天持有的利润 或 进行买入 )
-    dp_i_1 = Math.max(dp_i_1, -prices[i]);
+    dp_i_1 = Math.max(dp_i_1, dp_i_0 - prices[i]); // 重点
   }
 
   return dp_i_0; // 返回最后一天未持有的最大利润
