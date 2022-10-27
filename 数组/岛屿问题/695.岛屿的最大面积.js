@@ -1,0 +1,39 @@
+/*
+ * @lc app=leetcode.cn id=695 lang=javascript
+ *
+ * [695] 岛屿的最大面积
+ */
+
+// @lc code=start
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+//  跟【200.岛屿数量】相似，不过没求数量，求的是最大面积
+//  这就需要dfs 函数淹没岛屿的同时，还应该想办法记录这个岛屿的面积
+var maxAreaOfIsland = function (grid) {
+  const m = grid.length,
+    n = grid[0].length;
+
+  // 淹没与 (i, j) 相邻的陆地，并返回淹没的陆地面积
+  const dfs = (i, j) => {
+    if (i < 0 || i >= m || j < 0 || j >= n) return 0; // 越界
+    if (grid[i][j] === 0) return 0; // 已经是海水了
+
+    grid[i][j] = 0; // 用海水覆盖
+    // 覆盖四周
+    return dfs(i + 1, j) + dfs(i - 1, j) + dfs(i, j + 1) + dfs(i, j - 1) + 1;
+  };
+
+  let res = 0;
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      // 如果发现岛屿
+      if (grid[i][j] === 1) {
+        res = Math.max(res, dfs(i, j));
+      }
+    }
+  }
+  return res;
+};
+// @lc code=end
