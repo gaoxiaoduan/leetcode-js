@@ -1,0 +1,59 @@
+/*
+ * @lc app=leetcode.cn id=79 lang=javascript
+ *
+ * [79] 单词搜索
+ */
+
+// @lc code=start
+/**
+ * @param {character[][]} board
+ * @param {string} word
+ * @return {boolean}
+ */
+var exist = function (board, word) {
+  const m = board.length,
+    n = board[0].length;
+  // false表示未访问，true表示访问过
+  const visited = new Array(m).fill().map((_) => new Array(n).fill(false));
+  const len = word.length;
+
+  // 定义函数
+  // 返回 [i,j]为起点能够找出 word[p..end]
+  const canFind = (i, j, p) => {
+    if (p === len) {
+      // p指针越界了，返回true
+      return true;
+    }
+
+    // 越界直接返回false
+    if (i < 0 || i >= m || j < 0 || j >= n) return false;
+    // 访问过 或者不是要寻找的目标 也返回false
+    if (visited[i][j] || board[i][j] !== word[p]) return false;
+
+    // 剩下的情况就是 board[i][j] === word[p]
+
+    visited[i][j] = true; // 访问
+    // 访问上下左右
+    const canFindRes =
+      canFind(i, j + 1, p + 1) ||
+      canFind(i, j - 1, p + 1) ||
+      canFind(i + 1, j, p + 1) ||
+      canFind(i - 1, j, p + 1);
+
+    if (canFindRes) return true; // 如果能找到 返回true
+
+    visited[i][j] = false; // 撤销访问
+    return false;
+  };
+
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      if (board[i][j] === word[0] && canFind(i, j, 0)) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+// @lc code=end
