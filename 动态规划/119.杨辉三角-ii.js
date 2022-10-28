@@ -1,0 +1,58 @@
+/*
+ * @lc app=leetcode.cn id=119 lang=javascript
+ *
+ * [119] 杨辉三角 II
+ */
+
+// @lc code=start
+/**
+ * @param {number} rowIndex
+ * @return {number[]}
+ */
+// 动态规划（递归）
+var getRow = function (rowIndex) {
+  // base case
+  // 第0行是[1];
+  if (rowIndex === 0) return [1];
+
+  // 获取上一行的数据
+  const prevRow = getRow(rowIndex - 1);
+
+  // 根据上一行数据，构造该行数据
+  const newRow = [1];
+  for (let i = 0; i < prevRow.length - 1; i++) {
+    newRow.push(prevRow[i] + prevRow[i + 1]);
+  }
+  newRow.push(1);
+
+  return newRow;
+};
+
+// 先求出所有的结果，然后返回
+var getRow1 = function (rowIndex) {
+  const res = generate(rowIndex + 1);
+  return res[res.length - 1];
+};
+
+var generate = function (numRows) {
+  let res = [];
+
+  // 先 生成第一层
+  let firstRow = [1];
+  res.push(firstRow);
+
+  // 开始一层一层的生成
+  for (let i = 2; i <= numRows; i++) {
+    const prevRow = res[res.length - 1];
+    const curRow = [1];
+    for (let i = 0; i < prevRow.length - 1; i++) {
+      curRow.push(prevRow[i] + prevRow[i + 1]);
+    }
+    curRow.push(1);
+
+    res.push(curRow);
+  }
+
+  return res;
+};
+// @lc code=end
