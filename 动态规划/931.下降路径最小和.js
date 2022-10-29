@@ -9,39 +9,41 @@
  * @param {number[][]} matrix
  * @return {number}
  */
+//  时间复杂度 O(MN)
+//  空间复杂度 O(MN)
+
+//  - 思路
+//  - 对于[i,j] 可能从 [i-1,i], [i-1,j-1], [i-1,j+1]三个位置来
+//  - 那么从底部向上推
+//  - 定义dp(i,j) 表示从(0,..)位置到(i,j)的最小路径和
+//  - 动态转移方程：`dp(i,j) = [i,j] + min([i-1,j], [i-1,j-1], [i-1,j+1])`
 var minFallingPathSum = function (matrix) {
-  let n = matrix.length;
-  // 备忘录 根据边界值填充(100 * 100) + 1
-  let memo = Array.from({ length: n }).map((_) =>
-    Array.from({ length: n }).fill(100 * 100 + 1)
-  );
+  const m = matrix.length,
+    n = matrix[0].length;
+  const memo = new Array(m).fill(0).map((_) => new Array(n).fill(-1));
 
-  // 表示从matrix[0][...] 到matrix[i][j]最小路径和，其实就是穷举所有结果
-  const dp = (matrix, i, j) => {
-    // 边界判断
-    if (i < 0 || j < 0 || i >= n || j >= n) return Infinity;
-
-    // base case 就一行
+  // 返回从(0,j)出发到(i,j)的最小路径和
+  const dp = (i, j) => {
+    // 越界处理
+    if (i < 0 || j < 0 || i >= m || j >= n) return Infinity;
+    // base case
+    // 当到达第一排，返回的就是第一排的值
     if (i === 0) return matrix[0][j];
 
-    if (memo[i][j] !== 100 * 100 + 1) return memo[i][j];
+    if (memo[i][j] !== -1) return memo[i][j];
 
+    // 可能是从上面，左上和右上来的
     memo[i][j] =
-      matrix[i][j] +
-      Math.min(
-        dp(matrix, i - 1, j),
-        dp(matrix, i - 1, j - 1),
-        dp(matrix, i - 1, j + 1)
-      );
+      matrix[i][j] + Math.min(dp(i - 1, j), dp(i - 1, j - 1), dp(i - 1, j + 1));
 
     return memo[i][j];
   };
 
-  let result = Infinity;
+  let res = Infinity;
+  // 终点可能在最后一排（n-1）的任意一个位置
   for (let j = 0; j < n; j++) {
-    result = Math.min(result, dp(matrix, n - 1, j));
+    res = Math.min(res, dp(n - 1, j));
   }
-
-  return result;
+  return res;
 };
 // @lc code=end
