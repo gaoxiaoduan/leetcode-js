@@ -1,0 +1,48 @@
+/*
+ * @lc app=leetcode.cn id=516 lang=javascript
+ *
+ * [516] 最长回文子序列
+ */
+
+// @lc code=start
+/**
+ * @param {string} s
+ * @return {number}
+ */
+//  - 思路
+//  - 定义dp数组
+//      - 在子串s[i..j]中，最长的回文子序列为dp[i][j];
+//  - 动态转移方程
+//  ```js
+//  if(s[i]==s[j]) dp[i][j] = dp[i+1][j-1]+2; // i,j是相等的 +2，然后i,j向内靠拢
+//  else dp[i][j] = max(dp[i+1][j],dp[i][j-1]); //取[i+1..j] [i..j+1]中较长的
+//  ```
+//  - base case
+//      - 1个字符也是回文子序列，所以[i][i]为1
+//  - 注意遍历方向
+//      - 观察动态转移方程`dp[i][j] = dp[i+1][j-1]+2`;
+//      - i = i+1,而i是从0-->i,所以i要倒着遍历，才能计算出i+1
+//      - j=j-1; j是0 <-- j;所以j要从i+1开始，才能计算出j-1
+var longestPalindromeSubseq = function (s) {
+    const n = s.length;
+    if (n === 1) return 1;
+    // 定义dp
+    // 返回[i..j]的最长回文子串
+    const dp = new Array(n).fill().map(_ => new Array(n).fill(0));
+
+    for (let i = n - 1; i >= 0; i--) {
+        // base case
+        dp[i][i] = 1; // 自身位置就是自己，所以为1 
+        for (let j = i + 1; j < n; j++) {
+            if (s[i] === s[j]) {
+                dp[i][j] = dp[i + 1][j - 1] + 2;
+            } else {
+                dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+
+    return dp[0][n - 1];
+};
+// @lc code=end
+
