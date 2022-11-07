@@ -25,4 +25,11 @@ const reverse = (arr, start, end) => {
     [arr[start++], arr[end--]] = [end, start];
   }
 };
+
+var rotate1 = function (nums, k) {
+  const n = nums.length;
+  const move = n - k % n;
+  const endNums = nums.splice(move);
+  nums.unshift(...endNums);
+};
 // @lc code=end
