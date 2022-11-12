@@ -1,0 +1,25 @@
+/**
+ * @param {number[][]} image
+ * @param {number} sr
+ * @param {number} sc
+ * @param {number} color
+ * @return {number[][]}
+ */
+var floodFill = function (image, sr, sc, color) {
+    const m = image.length, n = image[0].length;
+    const origColor = image[sr][sc];
+    const fill = (i, j) => {
+        if (i < 0 || j < 0 || i >= m || j >= n) return; // 越界情况
+        if (image[i][j] !== origColor) return; // 不是[sr,sc]点的color
+        if (image[i][j] === -1) return;
+
+        image[i][j] = -1; // 使用-1标识已经走过
+        fill(i - 1, j);
+        fill(i + 1, j);
+        fill(i, j + 1);
+        fill(i, j - 1);
+        image[i][j] = color; // 在递归向上回溯的时候设置为新的color
+    }
+    fill(sr, sc);
+    return image;
+};
