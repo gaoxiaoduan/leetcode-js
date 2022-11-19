@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install
-      - run: npm run docs:build
+      - run: npm run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs-dist
+          # github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
