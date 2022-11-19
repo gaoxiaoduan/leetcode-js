@@ -2,7 +2,6 @@
 nav: 刷题记录-js
 group: 基础数据结构
 order: 0
-toc: content
 ---
 
 # [数组](https://leetcode.cn/tag/array/problemset/)
@@ -281,7 +280,7 @@ var reverseString = function (s) {
 ### [303.区域和检索-数组不可变](https://leetcode.cn/problems/range-sum-query-immutable/) <Badge type="success">easy</Badge>
 
 <div align=center>
-  <img src="https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202209161038322.png" width="800" />
+  <img src="https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202209161038322.png" style="max-width:100%" />
   <div align=center>前缀和</div>
 </div>
 
@@ -329,7 +328,7 @@ NumArray.prototype.sumRange = function (left, right) {
 - 目标矩阵通过相邻矩阵运行得到目标区域和
 
 <div align=center>
-  <img src="https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202209161128933.png" width="800" />
+  <img src="https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202209161128933.png" style="max-width:100%" />
   <div align=center>前缀和的矩阵运算</div>
 </div>
 
@@ -386,7 +385,7 @@ NumMatrix.prototype.sumRegion = function (row1, col1, row2, col2) {
 - 再对边界情况做处理就可以直接使用 304 的题解了
 
 <div align=center>
-  <img src="https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202211192009568.png" width="800" />
+  <img src="https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202211192009568.png" style="max-width:100%" />
   <div align=center>矩阵区域和</div>
 </div>
 
