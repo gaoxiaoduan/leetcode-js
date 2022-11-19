@@ -21,7 +21,7 @@
  * -     【 0  3   8   10  8    12   13 】
  * - 核心思路是我们 new 一个新的数组 preSum 出来，preSum[i] 记录 nums[0..i-1] 的累加和,看图 10 = 3 + 5 + 2：
  * - 如果我想求索引区间 [1, 4] 内的所有元素之和，就可以通过 preSum[5] - preSum[1] 得出
- * ![](https://coderduan-image.oss-cn-hangzhou.aliyuncs.com/img/202209161038322.png)
+ * ![](https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202209161038322.png)
  */
 var NumArray = function (nums) {
   this.preSum = new Array(nums.length + 1).fill(0);
