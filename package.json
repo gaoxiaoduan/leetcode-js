@@ -1,23 +1,33 @@
 {
-  "name": "leetcode",
-  "version": "1.0.0",
-  "description": "",
-  "main": "commit.js",
-  "directories": {
-    "example": "example"
-  },
+  "name": "leetcode-record",
+  "version": "0.0.1",
+  "description": "This is a leetcode brush record",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run dev",
+    "dev": "dumi dev",
+    "build": "dumi build",
+    "prepare": "husky install && dumi setup"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gaoxiaoduan/leetcode-js.git"
+  "authors": [
+    "1961018000@qq.com"
+  ],
+  "license": "MIT",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gaoxiaoduan/leetcode-js/issues"
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ]
   },
-  "homepage": "https://github.com/gaoxiaoduan/leetcode-js#readme"
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "dumi": "^2.0.0-rc.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  }
 }
