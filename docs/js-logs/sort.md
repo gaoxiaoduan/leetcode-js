@@ -3,7 +3,7 @@ nav: JavaScript题解
 group:
   title: 基础算法
   order: 1
-order: 0
+order: 1
 ---
 
-# 二分查找
+# 排序

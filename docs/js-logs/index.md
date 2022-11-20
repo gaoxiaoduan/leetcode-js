@@ -1,10 +1,10 @@
 ---
 nav:
-  title: 刷题记录-js
-  order: -1
+  title: JavaScript题解
+  order: 0
 group:
   title: 介绍
   order: -1
 ---
 
-# js 解法
+# JavaScript 题解
