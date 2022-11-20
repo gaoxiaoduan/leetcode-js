@@ -126,7 +126,7 @@ var removeElement = function (nums, val) {
 空间复杂度 O(1)
 
 - 思路
-- 快慢指针法，与 26.题相识
+- 快慢指针法，与 [26.删除有序数组中的重复项](#26删除有序数组中的重复项)相似
 - 因为链表已经有序，所以可以使用快指针在前面探路
 - 当遇到元素不相等的情况时，说明不是重复元素
 - 此时可以将 slow 指针的 next 指向快指针，这样就能让不重复的元素相连接
@@ -381,7 +381,7 @@ NumMatrix.prototype.sumRegion = function (row1, col1, row2, col2) {
 
 - 思路
 - 运用到了前缀和的- 思路
-- 使用 304 题的解法
+- 使用 [304 题](#304二维区域和检索-矩阵不可变)的解法
 - 再对边界情况做处理就可以直接使用 304 的题解了
 
 <div align=center>
@@ -790,7 +790,7 @@ var updateMatrix1 = function (mat) {
 
 ## [994.腐烂的橘子](https://leetcode.cn/problems/rotting-oranges/) <Badge type="warning">medium</Badge>
 
-- 跟 542.01 矩阵解法相似
+- 跟 [542.01 矩阵](#54201-矩阵)解法相似
 - 只变换橘子位置
 - 求最大的结果，如果有-1，返回-1
 
