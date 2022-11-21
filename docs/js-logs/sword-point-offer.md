@@ -21,8 +21,8 @@ order: 0
 
 ```js
 var CQueue = function () {
-    this.stack1 = [];// |==
-    this.stack2 = [];// |==
+  this.stack1 = []; // |==
+  this.stack2 = []; // |==
 };
 
 /**
@@ -30,21 +30,21 @@ var CQueue = function () {
  * @return {void}
  */
 CQueue.prototype.appendTail = function (value) {
-    this.stack1.push(value);
+  this.stack1.push(value);
 };
 
 /**
  * @return {number}
  */
 CQueue.prototype.deleteHead = function () {
-    if (this.stack2.length === 0) {
-        while (this.stack1.length > 0) {
-            this.stack2.push(this.stack1.pop())
-        }
+  if (this.stack2.length === 0) {
+    while (this.stack1.length > 0) {
+      this.stack2.push(this.stack1.pop());
     }
+  }
 
-    const res = this.stack2.pop();
-    return res === undefined ? -1 : res;
+  const res = this.stack2.pop();
+  return res === undefined ? -1 : res;
 };
 
 /**
@@ -55,7 +55,7 @@ CQueue.prototype.deleteHead = function () {
  */
 ```
 
-## [剑指 Offer 30. 包含min函数的栈](https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/) <Badge type="success">easy</Badge>
+## [剑指 Offer 30. 包含 min 函数的栈](https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/) <Badge type="success">easy</Badge>
 
 跟[115.最小栈](/js-logs/stack#115最小栈)相同
 
@@ -69,48 +69,82 @@ var MinStack = function () {
 };
 
 /**
-* @param {number} x
-* @return {void}
-*/
+ * @param {number} x
+ * @return {void}
+ */
 MinStack.prototype.push = function (x) {
   this.stack.push(x);
-  if (this.minStack.length === 0 || x <= this.minStack[this.minStack.length - 1]) {
+  if (
+    this.minStack.length === 0 ||
+    x <= this.minStack[this.minStack.length - 1]
+  ) {
     this.minStack.push(x);
   } else {
-    this.minStack.push(this.minStack[this.minStack.length - 1])
+    this.minStack.push(this.minStack[this.minStack.length - 1]);
   }
 };
 
 /**
-* @return {void}
-*/
+ * @return {void}
+ */
 MinStack.prototype.pop = function () {
   this.stack.pop();
   this.minStack.pop();
 };
 
 /**
-* @return {number}
-*/
+ * @return {number}
+ */
 MinStack.prototype.top = function () {
   return this.stack[this.stack.length - 1];
 };
 
 /**
-* @return {number}
-*/
+ * @return {number}
+ */
 MinStack.prototype.min = function () {
   return this.minStack[this.minStack.length - 1];
 };
 
 /**
-* Your MinStack object will be instantiated and called as such:
-* var obj = new MinStack()
-* obj.push(x)
-* obj.pop()
-* var param_3 = obj.top()
-* var param_4 = obj.min()
-*/
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(x)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.min()
+ */
+```
+
+## [剑指 Offer 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/) <Badge type="success">easy</Badge>
+
+- 思路
+- 利用递归栈(先进后出)的特性进行反转结果
+- 也可以理解为深度优先遍历
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {number[]}
+ */
+var reversePrint = function (head) {
+  let res = [];
+
+  const help = (node) => {
+    if (node === null) return;
+    node.next && help(node.next);
+    res.push(node.val);
+  };
+  help(head);
+  return res;
+};
 ```
 
 <!-- ## [111](xxx) <Badge type="success">easy</Badge>
