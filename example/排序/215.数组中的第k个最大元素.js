@@ -80,7 +80,7 @@ const swap = (nums, i, j) => {
 //     this.heap = [];
 //   }
 
-//   getPartentIndex(i) {
+//   getParentIndex(i) {
 //     return (i - 1) >> 1;
 //   }
 
@@ -100,10 +100,10 @@ const swap = (nums, i, j) => {
 
 //   shiftUp(index) {
 //     if (index === 0) return;
-//     let partentIndex = this.getPartentIndex(index);
-//     if (this.heap[partentIndex] > this.heap[index]) {
-//       this.swap(partentIndex, index);
-//       this.shiftUp(partentIndex);
+//     let parentIndex = this.getParentIndex(index);
+//     if (this.heap[parentIndex] > this.heap[index]) {
+//       this.swap(parentIndex, index);
+//       this.shiftUp(parentIndex);
 //     }
 //   }
 
