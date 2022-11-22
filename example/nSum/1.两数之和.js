@@ -63,4 +63,4 @@ var twoSumTarget = function (nums, target) {
 };
 // test
 let res = twoSumTarget([1, 1, 1, 2, 2, 3, 3], 4);
-console.log("[ res ] >", res);
+console.log("[ res ] >", res); // [ [ 1, 3 ], [ 2, 2 ] ]
