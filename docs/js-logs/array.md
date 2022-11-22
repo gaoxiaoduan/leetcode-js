@@ -280,7 +280,7 @@ var reverseString = function (s) {
 ### [303.区域和检索-数组不可变](https://leetcode.cn/problems/range-sum-query-immutable/) <Badge type="success">easy</Badge>
 
 <div align=center>
-  <img src="https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202209161038322.png" style="max-width:100%" />
+  <img src="https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202211221048704.png" style="max-width:100%" />
   <div align=center>前缀和</div>
 </div>
 
@@ -303,7 +303,7 @@ var reverseString = function (s) {
  */
 var NumArray = function (nums) {
   this.preSum = new Array(nums.length + 1).fill(0);
-  for (let i = 0; i < this.preSum.length; i++) {
+  for (let i = 1; i < this.preSum.length; i++) {
     this.preSum[i] = this.preSum[i - 1] + nums[i - 1];
   }
 };
@@ -314,7 +314,31 @@ var NumArray = function (nums) {
  * @return {number}
  */
 NumArray.prototype.sumRange = function (left, right) {
-  return this.preSum[left + 1] + this.preSum[right];
+  return this.preSum[right + 1] - this.preSum[left];
+};
+```
+
+- 根据题意求和
+
+```js
+/**
+ * @param {number[]} nums
+ */
+var NumArray = function (nums) {
+  this.nums = nums;
+};
+
+/**
+ * @param {number} left
+ * @param {number} right
+ * @return {number}
+ */
+NumArray.prototype.sumRange = function (left, right) {
+  let res = 0;
+  for (let i = left; i <= right; i++) {
+    res += this.nums[i];
+  }
+  return res;
 };
 ```
 
@@ -328,7 +352,7 @@ NumArray.prototype.sumRange = function (left, right) {
 - 目标矩阵通过相邻矩阵运行得到目标区域和
 
 <div align=center>
-  <img src="https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202209161128933.png" style="max-width:100%" />
+  <img src="https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202211221049678.png" style="max-width:100%" />
   <div align=center>前缀和的矩阵运算</div>
 </div>
 

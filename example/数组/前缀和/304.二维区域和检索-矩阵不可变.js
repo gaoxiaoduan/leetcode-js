@@ -14,7 +14,7 @@
  * 思路
  * - 前缀和
  * - 目标矩阵通过相邻矩阵运行得到目标区域和
- * ![](https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202209161128933.png)
+ * ![](https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202211221049678.png)
 - 定义preSum[i,j]记录着 matrix[0][0] 到matrix[i-1][j-1]的元素和(前缀和)
  */
 var NumMatrix = function (matrix) {
