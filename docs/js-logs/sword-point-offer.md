@@ -207,3 +207,44 @@ var copyRandomList = function (head, map = new Map()) {
   return map.get(head);
 };
 ```
+
+## [剑指 Offer 05. 替换空格](https://leetcode.cn/problems/ti-huan-kong-ge-lcof/) <Badge type="success">easy</Badge>
+
+- 思路
+- 由于字符串具有不可修改的特性
+- 所以先把字符串打散成数组，然后去修改空格键部分
+- 最后拼接返回即可
+- 或者直接使用 replaceAll 替换
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var replaceSpace = function (s) {
+  // return s.replaceAll(' ', '%20');
+  const res = s.split('');
+  for (let i = 0; i < res.length; i++) {
+    if (res[i] === ' ') {
+      res[i] = '%20';
+    }
+  }
+  return res.join('');
+};
+```
+
+## [剑指 Offer 58 - II. 左旋转字符串](https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/) <Badge type="success">easy</Badge>
+
+- 若不能使用 substring 函数
+- 也可以将字符串转成数组操作，然后把被截取的字符串拼到数组后面
+
+```js
+/**
+ * @param {string} s
+ * @param {number} n
+ * @return {string}
+ */
+var reverseLeftWords = function (s, n) {
+  return s.substring(n) + s.substring(0, n);
+};
+```
