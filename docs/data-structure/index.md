@@ -40,13 +40,13 @@ group:
 ### 常见的数据结构
 
 - [数组（Array）](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
-- 栈（Stack）
-- 链表（Linked List）
-- 图（Graph）
-- 散列表（Hash）
-- 队列（Queue）
-- 树（Tree）
-- 堆（Heap）
+- [栈（Stack）](/data-structure/01_stack)
+- [队列（Queue）](/data-structure/02_queue)
+- [链表（Linked List）](/data-structure/03_linked_list)
+- [哈希表（Hash）](/data-structure/07_hash_table)
+- [树（Tree）](/data-structure/08_tree&binary_tree)
+- [图（Graph）](/data-structure/11_graph)
+- [堆（Heap）](https://zh.wikipedia.org/wiki/%E5%A0%86%E7%A9%8D)
 
 > 注意：数据结构与算法与语言无关，常见的编程语言都有**直接或间接**的使用上述常见的数据结构。
 
