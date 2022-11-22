@@ -629,7 +629,7 @@ console.log(dll.remove('111')); // 111
 console.log(dll.toString()); // 333 444Ï
 ```
 
-### 2. 封装完的双向链表
+### 2.封装完的双向链表
 
 ```js
 function DoublyLinkedList() {

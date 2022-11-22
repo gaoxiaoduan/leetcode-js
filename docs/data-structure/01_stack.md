@@ -145,7 +145,7 @@ function dec2bin(decNumber) {
 console.log(dec2bin(100)); // 110010
 ```
 
-### 2.[有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+### 2.[有效的括号](/js-logs/stack#20有效的括号)
 
 - 解题思路：
 - 使用栈结构先进后出的特性

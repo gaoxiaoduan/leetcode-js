@@ -525,7 +525,7 @@ var deleteNode = function (node) {
 };
 ```
 
-### 2.[删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
+### 2.[删除排序链表中的重复元素](/js-logs/array#83删除排序链表中的重复元素)
 
 - 思路
 - 因为题目给出的链表是排好序的
@@ -549,7 +549,7 @@ var deleteDuplicates = function (head) {
 };
 ```
 
-### 3.[反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
+### 3.[反转链表](/js-logs/linked-list#反转链表)
 
 - 思路
 - 链表太长不容易看出如何反转，所以可以看作两个最短链表反转
@@ -573,7 +573,7 @@ var reverseList = function (head) {
 };
 ```
 
-### 4. [环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+### 4. [环形链表](/js-logs/linked-list#141环形链表)
 
 - 思路
 - 声明快慢两个指针进行赛跑
