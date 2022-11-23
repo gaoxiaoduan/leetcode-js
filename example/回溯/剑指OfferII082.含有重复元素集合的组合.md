@@ -1,19 +1,20 @@
-/*
- * @lc app=leetcode.cn id=39 lang=javascript
- *
- * [39] 组合总和
- */
+## [剑指 Offer II 082. 含有重复元素集合的组合](https://leetcode.cn/problems/4sjJUc/) <Badge type="warning">medium</Badge>
 
-// @lc code=start
+[本题与主站 40 题相同](https://leetcode-cn.com/problems/combination-sum-ii/)
+
+```js
 /**
  * @param {number[]} candidates
  * @param {number} target
  * @return {number[][]}
  */
-// 元素【无重】【可复选】
-var combinationSum = function (candidates, target) {
+// 元素【可重】【不可复选】
+// 注意剪枝
+var combinationSum2 = function (candidates, target) {
   const res = [];
   let targetSum = 0;
+  candidates.sort((a, b) => a - b);
+
   const backTrack = (start, track) => {
     // base case
     if (targetSum === target) {
@@ -22,11 +23,14 @@ var combinationSum = function (candidates, target) {
     }
     // 因为targetSum是累加的，所以当targetSum > target是，可以直接停止递归
     if (targetSum > target) return;
+
     for (let i = start; i < candidates.length; i++) {
+      // 对重复的，只遍历一次
+      if (i > start && candidates[i] === candidates[i - 1]) continue;
       // 做选择
       track.push(candidates[i]);
       targetSum += candidates[i];
-      backTrack(i, track);
+      backTrack(i + 1, track);
       // 撤销选择
       track.pop();
       targetSum -= candidates[i];
@@ -35,4 +39,4 @@ var combinationSum = function (candidates, target) {
   backTrack(0, []);
   return res;
 };
-// @lc code=end
+```

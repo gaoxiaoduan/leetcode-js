@@ -1,5 +1,8 @@
-// 剑指 Offer II 083. 没有重复元素集合的全排列: https://leetcode.cn/problems/VvJkup/
-// 注意：本题与主站 46 题相同：https://leetcode-cn.com/problems/permutations/
+## [剑指 Offer II 083. 没有重复元素集合的全排列](https://leetcode.cn/problems/VvJkup/) <Badge type="warning">medium</Badge>
+
+[本题与主站 46 题相同](https://leetcode-cn.com/problems/permutations/)
+
+```js
 /**
  * @param {number[]} nums
  * @return {number[][]}
@@ -28,3 +31,4 @@ var permute = function (nums) {
   backTrack(nums, []);
   return res;
 };
+```

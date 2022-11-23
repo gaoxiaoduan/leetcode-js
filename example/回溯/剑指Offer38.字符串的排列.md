@@ -1,5 +1,8 @@
-// 剑指 Offer 38. 字符串的排列: https://leetcode.cn/problems/zi-fu-chuan-de-pai-lie-lcof/
-// 跟47.全排列-ii 类似
+## [剑指 Offer 38. 字符串的排列](https://leetcode.cn/problems/zi-fu-chuan-de-pai-lie-lcof/) <Badge type="warning">medium</Badge>
+
+跟47.全排列-ii 类似
+
+```js
 /**
  * @param {string} s
  * @return {string[]}
@@ -33,3 +36,4 @@ var permutation = function (s) {
   backTrack([]);
   return res;
 };
+```

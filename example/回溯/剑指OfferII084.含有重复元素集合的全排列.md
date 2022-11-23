@@ -1,5 +1,8 @@
-// 剑指 Offer II 084. 含有重复元素集合的全排列: https://leetcode.cn/problems/7p8L0Z/
-// 本题与主站 47 题相同： https://leetcode-cn.com/problems/permutations-ii/
+## [剑指 Offer II 084. 含有重复元素集合的全排列](https://leetcode.cn/problems/7p8L0Z/) <Badge type="warning">medium</Badge>
+
+[本题与主站 47 题相同](https://leetcode-cn.com/problems/permutations-ii/)
+
+```js
 /**
  * @param {number[]} nums
  * @return {number[][]}
@@ -36,3 +39,4 @@ var permuteUnique = function (nums) {
   backTrack([]);
   return res;
 };
+```

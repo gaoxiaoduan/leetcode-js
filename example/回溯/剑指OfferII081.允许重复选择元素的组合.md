@@ -1,5 +1,8 @@
-// 剑指 Offer II 081. 允许重复选择元素的组合 https://leetcode.cn/problems/Ygoe9J/
-// 本题与主站 39 题相同： https://leetcode-cn.com/problems/combination-sum/
+## [剑指 Offer II 081. 允许重复选择元素的组合](https://leetcode.cn/problems/Ygoe9J/) <Badge type="warning">medium</Badge>
+
+[本题与主站 39 题相同](https://leetcode-cn.com/problems/combination-sum/)
+
+```js
 /**
  * @param {number[]} candidates
  * @param {number} target
@@ -30,3 +33,4 @@ var combinationSum = function (candidates, target) {
   backTrack(0, []);
   return res;
 };
+```

@@ -1,5 +1,8 @@
-// 剑指 Offer II 080. 含有 k 个元素的组合: https://leetcode.cn/problems/uUsW3B/
-// 本题与主站 77 题相同： https://leetcode-cn.com/problems/combinations/
+## [剑指 Offer II 080. 含有 k 个元素的组合](https://leetcode.cn/problems/uUsW3B/) <Badge type="warning">medium</Badge>
+
+[本题与主站 77 题相同](https://leetcode-cn.com/problems/combinations/)
+
+```js
 /**
  * @param {number} n
  * @param {number} k
@@ -27,3 +30,4 @@ var combine = function (n, k) {
   backTrack(1, []);
   return res;
 };
+```
