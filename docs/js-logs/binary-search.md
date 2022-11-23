@@ -60,6 +60,8 @@ var searchInsert = function (nums, target) {
 
 ## [34.在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/) <Badge type="warning">medium</Badge>
 
+跟[剑指 Offer 53 - I. 在排序数组中查找数字 I](/js-logs/sword-point-offer#剑指-offer-53---i-在排序数组中查找数字-i)相似
+
 ```js
 /**
  * @param {number[]} nums
