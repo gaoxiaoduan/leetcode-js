@@ -1,3 +1,6 @@
+// 剑指 Offer 53 - II. 0～n-1中缺失的数字 ： https://leetcode.cn/problems/que-shi-de-shu-zi-lcof/
+// tag: easy
+
 /**
  * @param {number[]} nums
  * @return {number}
@@ -7,6 +10,7 @@
 //  - a ^ b ^ a = b ^ (a ^ a);
 //  - 所以可以将数组内的元素跟[0,n]异或一下
 //  - 结果就是丢失的数字
+//  - 跟[268题]相同
 var missingNumber = function (nums) {
   const n = nums.length;
   let res = 0;
@@ -22,9 +26,7 @@ var missingNumber = function (nums) {
  * @param {number[]} nums
  * @return {number}
  */
-// 两个等差数列
-// `sum(nums) - sum([0,n])`就是缺的那个元素
-var missingNumber1 = function (nums) {
+var missingNumber = function (nums) {
   let sumNums = 0;
   let sum = 0;
   for (let i = 0; i < nums.length; i++) {

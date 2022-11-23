@@ -103,6 +103,7 @@ var isPowerOfTwo = function (n) {
 - a ^ b ^ a = b ^ (a ^ a);
 - 所以可以将数组内的元素跟[0,n]异或一下
 - 结果就是丢失的数字
+- 跟[剑指 Offer 53 - II. 0 ～ n-1 中缺失的数字](/js-logs/sword-point-offer#剑指-offer-53---ii-0n-1中缺失的数字)相同
 
 ```js
 /**
