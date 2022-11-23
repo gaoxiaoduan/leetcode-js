@@ -258,6 +258,7 @@ var reverseLeftWords = function (s, n) {
 - 使用 set 内元素不重复的特点
 - 遍历整个数组，若元素已经存在与 set 内，返回即可
 - 若 set 内不存在，就进行添加操作
+- 跟[442.数组中重复的数据](/js-logs/array#442数组中重复的数据)思路类似
 
 ```js
 /**
