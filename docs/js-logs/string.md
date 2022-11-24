@@ -144,3 +144,5 @@ var isSubsequence = function (s, t) {
   return p1 === s.length;
 };
 ```
+
+<embed src="@/example/字符串/387.字符串中的第一个唯一字符.md"></embed>
