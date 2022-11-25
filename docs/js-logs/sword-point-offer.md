@@ -424,3 +424,5 @@ var missingNumber1 = function (nums) {
 <embed src="@/example/剑指Offer/剑指Offer32-I.从上到下打印二叉树.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer32-II.从上到下打印二叉树II.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer32-III.从上到下打印二叉树III.md"></embed>
