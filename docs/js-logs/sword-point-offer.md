@@ -422,3 +422,5 @@ var missingNumber1 = function (nums) {
 <embed src="@/example/剑指Offer/剑指Offer50.第一个只出现一次的字符.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer32-I.从上到下打印二叉树.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer32-II.从上到下打印二叉树II.md"></embed>
