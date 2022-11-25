@@ -420,3 +420,5 @@ var missingNumber1 = function (nums) {
 <embed src="@/example/剑指Offer/剑指Offer11.旋转数组的最小数字.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer50.第一个只出现一次的字符.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer32-I.从上到下打印二叉树.md"></embed>
