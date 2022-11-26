@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkleetcode_record=self.webpackChunkleetcode_record||[]).push([[9],{12535:function(l,n,e){e.r(n),e.d(n,{default:function(){return d}});var o=e(20187),t=e(62435),a=function(){var u=(0,o.UO)(),c=u.id,m=(0,o.WF)(),s=m.demos,f=s[c]||{},r=f.component;return r&&(0,t.createElement)(r)},d=a}}]);
