@@ -428,3 +428,7 @@ var missingNumber1 = function (nums) {
 <embed src="@/example/剑指Offer/剑指Offer32-III.从上到下打印二叉树III.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer26.树的子结构.md"></embed>
+
+<embed src="@/example/二叉树/剑指Offer27.二叉树的镜像.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer28.对称的二叉树.md"></embed>
