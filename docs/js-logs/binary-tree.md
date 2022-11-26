@@ -12,6 +12,10 @@ order: 2
 
 <embed src="@/example/二叉树/98.验证二叉搜索树.md"></embed>
 
+<embed src="@/example/二叉树/100.相同的树.md"></embed>
+
+<embed src="@/example/二叉树/101.对称二叉树.md"></embed>
+
 <embed src="@/example/二叉树/102.二叉树的层序遍历.md"></embed>
 
 <embed src="@/example/二叉树/103.二叉树的锯齿形层序遍历.md"></embed>
