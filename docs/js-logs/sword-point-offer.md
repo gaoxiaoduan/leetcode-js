@@ -438,3 +438,5 @@ var missingNumber1 = function (nums) {
 <embed src="@/example/动态规划/剑指Offer10-II.青蛙跳台阶问题.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer63.股票的最大利润.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer42.连续子数组的最大和.md"></embed>
