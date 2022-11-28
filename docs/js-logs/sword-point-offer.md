@@ -432,3 +432,9 @@ var missingNumber1 = function (nums) {
 <embed src="@/example/二叉树/剑指Offer27.二叉树的镜像.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer28.对称的二叉树.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer10-I.斐波那契数列.md"></embed>
+
+<embed src="@/example/动态规划/剑指Offer10-II.青蛙跳台阶问题.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer63.股票的最大利润.md"></embed>
