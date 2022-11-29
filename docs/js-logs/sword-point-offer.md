@@ -442,3 +442,5 @@ var missingNumber1 = function (nums) {
 <embed src="@/example/剑指Offer/剑指Offer42.连续子数组的最大和.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer47.礼物的最大价值.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer46.把数字翻译成字符串.md"></embed>
