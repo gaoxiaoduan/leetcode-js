@@ -1,17 +1,15 @@
-// 剑指 Offer 18. 删除链表的节点: https://leetcode.cn/problems/shan-chu-lian-biao-de-jie-dian-lcof/
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
+## [剑指 Offer 18. 删除链表的节点](https://leetcode.cn/problems/shan-chu-lian-biao-de-jie-dian-lcof/) <Badge type="success">easy</Badge>
+
+时间复杂度O(N)
+空间复杂度O(N)
+- 创建一个新的链表，其中「不包含val」相当于把val删除，返回新的链表
+
+```js
 /**
  * @param {ListNode} head
  * @param {number} val
  * @return {ListNode}
  */
-// 创建一个新的链表，其中不包含val
 var deleteNode = function (head, val) {
   let newList = new ListNode(-1);
   let q = newList; // q负责结果链表
@@ -26,9 +24,14 @@ var deleteNode = function (head, val) {
   }
   return newList.next;
 };
+```
 
-// 直接删除链表中的值
-var deleteNode1 = function (head, val) {
+- 直接删除链表中的值
+- 使用pre和p遍历链表
+- 找到val时，使用`pre.next = pre.next.next`,跳过此val值，相当于在链表删除val
+
+```js
+var deleteNode = function (head, val) {
   let newList = new ListNode(-1);
   newList.next = head; // 创建一个新的头节点，连接head
 
@@ -47,3 +50,4 @@ var deleteNode1 = function (head, val) {
 
   return newList.next;
 };
+```
