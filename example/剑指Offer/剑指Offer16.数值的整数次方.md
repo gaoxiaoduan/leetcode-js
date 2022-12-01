@@ -1,5 +1,8 @@
-// 剑指 Offer 16. 数值的整数次方:https://leetcode.cn/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/
-// 本题与主站 50 题相同：https://leetcode-cn.com/problems/powx-n/
+## [剑指 Offer 16. 数值的整数次方](https://leetcode.cn/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/) <Badge type="warning">medium</Badge>
+
+跟[50.Pow(x, n)](/js-logs/math#50pow-x-n)相同
+
+```js
 /**
  * @param {number} x
  * @param {number} n
@@ -22,3 +25,4 @@ var myPow = function (x, n) {
     return sub * sub;
   }
 };
+```

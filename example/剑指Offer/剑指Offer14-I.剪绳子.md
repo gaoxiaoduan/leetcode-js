@@ -1,5 +1,8 @@
-// 剑指 Offer 14- I. 剪绳子: https://leetcode.cn/problems/jian-sheng-zi-lcof/
-// 本题与主站 343 题相同：https://leetcode-cn.com/problems/integer-break/
+## [剑指 Offer 14- I. 剪绳子](https://leetcode.cn/problems/jian-sheng-zi-lcof/) <Badge type="warning">medium</Badge>
+
+跟[343.整数拆分](/js-logs/dynamic-programming#343整数拆分)相同
+
+```js
 /**
  * @param {number} n
  * @return {number}
@@ -18,3 +21,4 @@ var cuttingRope = function (n) {
 
   return dp[n];
 };
+```

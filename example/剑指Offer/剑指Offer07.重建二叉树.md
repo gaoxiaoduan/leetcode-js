@@ -1,4 +1,8 @@
-// 剑指 Offer 07. 重建二叉树: https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/
+## [剑指 Offer 07. 重建二叉树](https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/) <Badge type="warning">medium</Badge>
+
+跟[105.从前序与中序遍历序列构造二叉树](/js-logs/binary-tree#105从前序与中序遍历序列构造二叉树)相同
+
+```js
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -30,3 +34,4 @@ var buildTree = function (preorder, inorder) {
 
   return build(0, preorder.length - 1, 0, inorder.length - 1);
 };
+```

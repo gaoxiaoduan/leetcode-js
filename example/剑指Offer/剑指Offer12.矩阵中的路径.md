@@ -1,6 +1,9 @@
-// 剑指 Offer 12. 矩阵中的路径: https://leetcode.cn/problems/ju-zhen-zhong-de-lu-jing-lcof/
-// 本题与主站 79 题相同：https://leetcode-cn.com/problems/word-search/
+## [剑指 Offer 12. 矩阵中的路径](https://leetcode.cn/problems/ju-zhen-zhong-de-lu-jing-lcof/) <Badge type="warning">medium</Badge>
 
+回溯
+跟[79.单词搜索](/js-logs/backtracking#79单词搜索)相同
+
+```js
 /**
  * @param {character[][]} board
  * @param {string} word
@@ -52,3 +55,4 @@ var exist = function (board, word) {
   }
   return false;
 };
+```

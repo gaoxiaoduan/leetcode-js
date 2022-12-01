@@ -1,5 +1,10 @@
-// 剑指 Offer 06. 从尾到头打印链表: https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
+## [剑指 Offer 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/) <Badge type="success">easy</Badge>
 
+- 思路
+- 利用递归栈(先进后出)的特性进行反转结果
+- 也可以理解为深度优先遍历
+
+```js
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -11,7 +16,6 @@
  * @param {ListNode} head
  * @return {number[]}
  */
-// 利用递归栈 （先进后出）的特性进行反转结果
 var reversePrint = function (head) {
   let res = [];
 
@@ -23,3 +27,4 @@ var reversePrint = function (head) {
   help(head);
   return res;
 };
+```
