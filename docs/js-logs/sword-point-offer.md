@@ -450,3 +450,5 @@ var missingNumber1 = function (nums) {
 <embed src="@/example/剑指Offer/剑指Offer18.删除链表的节点.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer25.合并两个排序的链表.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer52.两个链表的第一个公共节点.md"></embed>
