@@ -22,8 +22,6 @@ order: 0
 
 <embed src="@/example/剑指Offer/剑指Offer17.打印从1到最大的n位数.md"></embed>
 
-<embed src="@/example/剑指Offer/剑指Offer21.调整数组顺序使奇数位于偶数前面.md"></embed>
-
 <embed src="@/example/剑指Offer/剑指Offer55-II.平衡二叉树.md"></embed>
 
 <!-- --------⬇ 学习计划-[剑指 Offer 1]------------- -->
@@ -85,3 +83,7 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer25.合并两个排序的链表.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer52.两个链表的第一个公共节点.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer21.调整数组顺序使奇数位于偶数前面.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer57.和为s的两个数字.md"></embed>
