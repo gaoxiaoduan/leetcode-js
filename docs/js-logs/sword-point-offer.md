@@ -10,8 +10,6 @@ order: 0
 
 <embed src="@/example/剑指Offer/剑指Offer07.重建二叉树.md"></embed>
 
-<embed src="@/example/剑指Offer/剑指Offer12.矩阵中的路径.md"></embed>
-
 <embed src="@/example/剑指Offer/剑指Offer14-I.剪绳子.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer14-II.剪绳子II.md"></embed>
@@ -89,3 +87,7 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer57.和为s的两个数字.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer58-I.翻转单词顺序.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer12.矩阵中的路径.md"></embed>
+
+<embed src="@/example/剑指Offer/面试题13.机器人的运动范围.md"></embed>
