@@ -91,3 +91,5 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer12.矩阵中的路径.md"></embed>
 
 <embed src="@/example/剑指Offer/面试题13.机器人的运动范围.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer34.二叉树中和为某一值的路径.md"></embed>
