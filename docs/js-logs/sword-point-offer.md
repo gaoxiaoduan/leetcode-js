@@ -93,3 +93,5 @@ order: 0
 <embed src="@/example/剑指Offer/面试题13.机器人的运动范围.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer34.二叉树中和为某一值的路径.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer36.二叉搜索树与双向链表.md"></embed>
