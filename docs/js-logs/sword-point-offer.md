@@ -99,3 +99,5 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer54.二叉搜索树的第k大节点.md"></embed>
 
 <embed src="@/example/剑指Offer/面试题45.把数组排成最小的数.md"></embed>
+
+<embed src="@/example/剑指Offer/面试题61.扑克牌中的顺子.md"></embed>
