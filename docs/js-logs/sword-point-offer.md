@@ -97,3 +97,5 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer36.二叉搜索树与双向链表.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer54.二叉搜索树的第k大节点.md"></embed>
+
+<embed src="@/example/剑指Offer/面试题45.把数组排成最小的数.md"></embed>
