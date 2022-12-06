@@ -4,7 +4,7 @@ description: 这是一个leetcode刷题记录📝,目前有300+道题js版本题
 keywords: [leetcode-js, 前端刷题, leetcode, 刷题记录]
 hero:
   title: 刷题记录
-  description: 这是一个leetcode刷题记录📝,目前有290+道题js版本题解,后续会更新其他语言版本,欢迎PR👋
+  description: 这是一个leetcode刷题记录📝,目前有300+道题js版本题解,后续会更新其他语言版本,欢迎PR👋
   actions:
     - text: 开始
       link: /js-logs
