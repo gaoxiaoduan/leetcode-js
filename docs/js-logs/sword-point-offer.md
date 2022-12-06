@@ -103,3 +103,5 @@ order: 0
 <embed src="@/example/剑指Offer/面试题61.扑克牌中的顺子.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer40.最小的k个数.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer41.数据流中的中位数.md"></embed>
