@@ -20,8 +20,6 @@ order: 0
 
 <embed src="@/example/剑指Offer/剑指Offer17.打印从1到最大的n位数.md"></embed>
 
-<embed src="@/example/剑指Offer/剑指Offer55-II.平衡二叉树.md"></embed>
-
 <!-- --------⬇ 学习计划-[剑指 Offer 1]------------- -->
 
 <embed src="@/example/剑指Offer/剑指Offer09.用两个栈实现队列.md"></embed>
@@ -105,3 +103,7 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer40.最小的k个数.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer41.数据流中的中位数.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer55-I.二叉树的深度.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer55-II.平衡二叉树.md"></embed>
