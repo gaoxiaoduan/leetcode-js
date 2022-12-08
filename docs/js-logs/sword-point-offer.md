@@ -109,3 +109,7 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer55-II.平衡二叉树.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer64.求1+2+…+n.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer68-I.二叉搜索树的最近公共祖先.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer68-II.二叉树的最近公共祖先.md"></embed>
