@@ -64,6 +64,10 @@ order: 2
 
 <embed src="@/example/二叉树/230.二叉搜索树中第k小的元素.md"></embed>
 
+<embed src="@/example/二叉树/235.二叉搜索树的最近公共祖先.md"></embed>
+
+<embed src="@/example/二叉树/236.二叉树的最近公共祖先.md"></embed>
+
 <embed src="@/example/二叉树/257.二叉树的所有路径.md"></embed>
 
 <embed src="@/example/二叉树/297.二叉树的序列化与反序列化.md"></embed>
@@ -135,4 +139,3 @@ order: 2
 <embed src="@/example/二叉树/剑指Offer27.二叉树的镜像.md"></embed>
 
 <embed src="@/example/二叉树/剑指Offer55-I.二叉树的深度.md"></embed>
-
