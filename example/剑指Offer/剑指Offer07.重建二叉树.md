@@ -16,8 +16,19 @@
  * @return {TreeNode}
  */
 var buildTree = function (preorder, inorder) {
-  // build
-  // 寻找根节点和左右子树的根节点
+  /**
+    preorder = [3,  9,  20,  15,  7]
+                ⬆  |l|  |    r   |
+                根
+
+    inorder =  [9,  3,  15,  20,  7]
+               |l|  ⬆   |    r   |
+                    根
+    定义：
+    前序遍历数组为preorder[preStart,preEnd]
+    中序遍历数组为inorder[inStart,inEnd]
+    构造这个二叉树，并返回根节点
+    */
   const build = (preStart, preEnd, inStart, inEnd) => {
     if (preStart > preEnd) return null;
     const rootVal = preorder[preStart]; // 前序遍历的第一个节点是根结点

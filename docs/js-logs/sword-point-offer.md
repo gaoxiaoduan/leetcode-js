@@ -8,15 +8,11 @@ order: 0
 
 # 剑指 Offer
 
-<embed src="@/example/剑指Offer/剑指Offer07.重建二叉树.md"></embed>
-
 <embed src="@/example/剑指Offer/剑指Offer14-I.剪绳子.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer14-II.剪绳子II.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer15.二进制中1的个数.md"></embed>
-
-<embed src="@/example/剑指Offer/剑指Offer16.数值的整数次方.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer17.打印从1到最大的n位数.md"></embed>
 
@@ -113,3 +109,9 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer68-I.二叉搜索树的最近公共祖先.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer68-II.二叉树的最近公共祖先.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer07.重建二叉树.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer16.数值的整数次方.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer33.二叉搜索树的后序遍历序列.md"></embed>
