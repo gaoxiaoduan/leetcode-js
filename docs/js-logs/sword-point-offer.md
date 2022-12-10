@@ -12,8 +12,6 @@ order: 0
 
 <embed src="@/example/剑指Offer/剑指Offer14-II.剪绳子II.md"></embed>
 
-<embed src="@/example/剑指Offer/剑指Offer15.二进制中1的个数.md"></embed>
-
 <embed src="@/example/剑指Offer/剑指Offer17.打印从1到最大的n位数.md"></embed>
 
 <!-- --------⬇ 学习计划-[剑指 Offer 1]------------- -->
@@ -115,3 +113,7 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer16.数值的整数次方.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer33.二叉搜索树的后序遍历序列.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer15.二进制中1的个数.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer65.不用加减乘除做加法.md"></embed>
