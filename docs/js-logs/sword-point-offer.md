@@ -117,3 +117,5 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer15.二进制中1的个数.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer65.不用加减乘除做加法.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer56-I.数组中数字出现的次数.md"></embed>
