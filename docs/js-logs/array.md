@@ -483,6 +483,8 @@ NumMatrix.prototype.sumRegion = function (row1, col1, row2, col2) {
  */
 ```
 
+<embed src="@/example/数组/前缀和/238.除自身以外数组的乘积.md"></embed>
+
 ## 差分数组
 
 ### [1109.航班预订统计](https://leetcode.cn/problems/corporate-flight-bookings/) <Badge type="warning">medium</Badge>
