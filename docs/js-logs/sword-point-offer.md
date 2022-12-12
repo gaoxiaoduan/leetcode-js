@@ -121,3 +121,5 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer56-I.数组中数字出现的次数.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer56-II.数组中数字出现的次数II.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer39.数组中出现次数超过一半的数字.md"></embed>
