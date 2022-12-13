@@ -8,8 +8,6 @@ order: 0
 
 # 剑指 Offer
 
-<embed src="@/example/剑指Offer/剑指Offer14-I.剪绳子.md"></embed>
-
 <embed src="@/example/剑指Offer/剑指Offer14-II.剪绳子II.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer17.打印从1到最大的n位数.md"></embed>
@@ -125,3 +123,5 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer39.数组中出现次数超过一半的数字.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer66.构建乘积数组.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer14-I.剪绳子.md"></embed>

@@ -22,3 +22,29 @@ var cuttingRope = function (n) {
   return dp[n];
 };
 ```
+
+自顶向下+备忘录
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var cuttingRope = function (n) {
+  const memo = Array(n + 1).fill(-1);
+  // 返回拆解n后的最大乘积
+  const dp = (n) => {
+    if (n === 0 || n === 1) return n;
+    if (memo[n] !== -1) return memo[n];
+
+    let res = -Infinity;
+    for (let i = 1; i < n; i++) {
+      res = Math.max(res, Math.max(i, dp(i)) * Math.max(n - i, dp(n - i)));
+    }
+    memo[n] = res;
+    return res;
+  };
+
+  return dp(n);
+};
+```
