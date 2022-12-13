@@ -125,3 +125,5 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer66.构建乘积数组.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer14-I.剪绳子.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer57-II.和为s的连续正数序列.md"></embed>
