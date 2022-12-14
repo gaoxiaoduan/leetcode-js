@@ -233,3 +233,5 @@ MinStack.prototype.getMin = function () {
  * var param_4 = obj.getMin()
  */
 ```
+
+<embed src="@/example/栈/946.验证栈序列.md"></embed>
