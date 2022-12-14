@@ -131,3 +131,5 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer62.圆圈中最后剩下的数字.md"></embed>
 
 <embed src="@/example/数组/二位数组的花式遍历技巧/剑指Offer29.顺时针打印矩阵.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer31.栈的压入弹出序列.md"></embed>
