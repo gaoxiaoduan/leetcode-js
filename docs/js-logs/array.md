@@ -621,6 +621,10 @@ class Diff {
 }
 ```
 
+## 二位数组的花式遍历技巧
+
+<embed src="../../example/数组/二位数组的花式遍历技巧/48.旋转图像.md"></embed>
+
 ## [88.合并两个有序数组](https://leetcode.cn/problems/merge-sorted-array/) <Badge type="success">easy</Badge>
 
 时间复杂度 O(n)
