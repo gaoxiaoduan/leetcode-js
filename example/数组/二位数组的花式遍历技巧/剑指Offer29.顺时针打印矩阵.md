@@ -1,0 +1,61 @@
+## [剑指 Offer 29. 顺时针打印矩阵](https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/) <Badge type="success">easy</Badge>
+
+时间复杂度 O(N)
+空间复杂度 O(N)
+
+- 思路
+- 限定好上下左右四个边界，然后每当遍历一边完成就收缩边界
+- 跟[54.螺旋矩阵](/js-logs/array#54螺旋矩阵)相同
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {number[]}
+ */
+var spiralOrder = function (matrix) {
+  const m = matrix.length;
+  if (m === 0) return [];
+  const n = matrix[0].length;
+  let up_bound = 0,
+    low_bound = m - 1;
+  let left_bound = 0,
+    right_bound = n - 1;
+  const res = [];
+  // 当res.length == m*n时退出循环
+  while (res.length < m * n) {
+    // 在上侧，⇒ 从左向右遍历
+    if (up_bound <= low_bound) {
+      for (let j = left_bound; j <= right_bound; j++) {
+        res.push(matrix[up_bound][j]);
+      }
+      up_bound++; // 上边界收缩
+    }
+
+    // 在右侧，⇓ 从上向下遍历
+    if (left_bound <= right_bound) {
+      for (let i = up_bound; i <= low_bound; i++) {
+        res.push(matrix[i][right_bound]);
+      }
+      right_bound--; // 右边界收缩
+    }
+
+    // 在下侧，⇐ 从右向左遍历
+    if (up_bound <= low_bound) {
+      for (let j = right_bound; j >= left_bound; j--) {
+        res.push(matrix[low_bound][j]);
+      }
+      low_bound--; // 下边界收缩
+    }
+
+    // 在左侧，⇑ 从下向上遍历
+    if (left_bound <= right_bound) {
+      for (let i = low_bound; i >= up_bound; i--) {
+        res.push(matrix[i][left_bound]);
+      }
+      left_bound++;
+    }
+  }
+
+  return res;
+};
+```
