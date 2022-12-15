@@ -133,3 +133,5 @@ order: 0
 <embed src="@/example/数组/二位数组的花式遍历技巧/剑指Offer29.顺时针打印矩阵.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer31.栈的压入弹出序列.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer20.表示数值的字符串.md"></embed>
