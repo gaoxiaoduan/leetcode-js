@@ -135,3 +135,5 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer31.栈的压入弹出序列.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer20.表示数值的字符串.md"></embed>
+
+<embed src="@/example/剑指Offer/面试题67.把字符串转换成整数.md"></embed>
