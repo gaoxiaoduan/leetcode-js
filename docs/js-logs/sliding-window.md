@@ -14,6 +14,8 @@ order: 0
 
 <embed src="../../example/滑动窗口/单调队列解决滑动窗口问题/剑指Offer59-I.滑动窗口的最大值.md"></embed>
 
+<embed src="../../example/滑动窗口/单调队列解决滑动窗口问题/面试题59-II.队列的最大值.md"></embed>
+
 ## [567.字符串的排列](https://leetcode.cn/problems/permutation-in-string/) <Badge type="warning">medium</Badge>
 
 时间复杂度 O(N)
