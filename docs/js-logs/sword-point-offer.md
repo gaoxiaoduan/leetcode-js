@@ -143,3 +143,5 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer19.正则表达式匹配.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer49.丑数.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer60.n个骰子的点数.md"></embed>
