@@ -149,3 +149,5 @@ order: 0
 <embed src="@/example/剑指Offer/剑指Offer14-II.剪绳子II.md"></embed>
 
 <embed src="@/example/剑指Offer/剑指Offer43.1～n整数中1出现的次数.md"></embed>
+
+<embed src="@/example/剑指Offer/剑指Offer44.数字序列中某一位的数字.md"></embed>
