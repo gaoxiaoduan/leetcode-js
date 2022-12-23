@@ -4,6 +4,7 @@ group:
   title: 进阶算法
   order: 2
 order: 3
+toc: content
 ---
 
 # 贪心算法

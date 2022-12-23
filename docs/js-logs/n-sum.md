@@ -3,7 +3,8 @@ nav: JavaScript题解
 group:
   title: TODO
   order: 3
-order: 2
+order: 3
+toc: content
 ---
 
 # nSum

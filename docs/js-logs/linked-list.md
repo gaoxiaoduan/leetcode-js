@@ -2,6 +2,7 @@
 nav: JavaScript题解
 group: 基础数据结构
 order: 1
+toc: content
 ---
 
 # [链表](https://leetcode.cn/tag/linked-list/problemset/)

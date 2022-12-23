@@ -4,6 +4,7 @@ group:
   title: 基础算法
   order: 1
 order: 1
+toc: content
 ---
 
 # 排序

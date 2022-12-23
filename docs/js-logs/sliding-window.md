@@ -4,6 +4,7 @@ group:
   title: 进阶算法
   order: 2
 order: 0
+toc: content
 ---
 
 # 滑动窗口

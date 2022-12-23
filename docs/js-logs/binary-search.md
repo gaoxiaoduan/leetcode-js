@@ -4,6 +4,7 @@ group:
   title: 基础算法
   order: 1
 order: 0
+toc: content
 ---
 
 # 二分搜索
