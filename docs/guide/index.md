@@ -1,7 +1,7 @@
 ---
 nav:
   title: 指南
-  order: 1
+  order: 2
 ---
 
 # 指南
@@ -25,14 +25,12 @@ order: 0 # group内顺序
   <div align=center>题目跳转指引</div>
 </div>
 
-
 <!-- <embed src="xxx"></embed> -->
 
 <!-- <div align=center>
   <img src="https://cdn.jsdelivr.net/gh/gaoxiaoduan/picGoImg@main/images/202210251429165.png" style="max-width:100%" />
   <div align=center>图解</div>
 </div> -->
-
 
 <!-- ## [111](xxx) <Badge type="success">easy</Badge>
 
