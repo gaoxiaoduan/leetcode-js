@@ -619,3 +619,241 @@ MyPromise.deferred = function () {
 };
 module.exports = MyPromise;
 ```
+
+## 七、完整代码
+
+```js
+const PENDING = 'pending';
+const FULFILLED = 'fulfilled';
+const REJECTED = 'rejected';
+
+class MyPromise {
+  constructor(exec) {
+    this.status = PENDING;
+    this.value = null;
+    this.reason = null;
+
+    this.resolveCallbacks = [];
+    this.rejectCallbacks = [];
+
+    // resolve和reject被回调的时候，状态流转
+    // 这里使用箭头函数，绑定resolve和reject的this始终指向MyPromise
+    let resolve = (value) => {
+      if (this.status === PENDING) {
+        this.status = FULFILLED;
+        this.value = value;
+        this.resolveCallbacks.forEach((fn) => fn());
+      }
+    };
+
+    let reject = (reason) => {
+      if (this.status === PENDING) {
+        this.status = REJECTED;
+        this.reason = reason;
+        this.rejectCallbacks.forEach((fn) => fn());
+      }
+    };
+    // 若执行器报错，直接reject出去
+    try {
+      // 执行器传入后立即执行
+      exec(resolve, reject);
+    } catch (error) {
+      reject(error);
+    }
+  }
+
+  isFunction(params) {
+    return typeof params === 'function';
+  }
+
+  then(onFulfilled, onRejected) {
+    // 1.onFulfilled和onRejected如果不是函数，就返回原value或reason
+    const fulFilledFn = this.isFunction(onFulfilled)
+      ? onFulfilled
+      : (value) => value;
+    const rejectedFn = this.isFunction(onRejected)
+      ? onRejected
+      : (reason) => {
+          throw reason;
+        };
+
+    // 2.then方法返回一个promise对象
+    const p2 = new MyPromise((resolve, reject) => {
+      const fulfilledMicrotask = () => {
+        // 3.3. onFulfilled和onRejected是微任务，需要使用queueMicrotask或者setTimeout包裹
+        queueMicrotask(() => {
+          // 2.2 如果onFulfilled或者onRejected执行时抛出异常e，promise2需要被reject，其reason为e
+          try {
+            // 2.1 onFulfilled或onRejected执行的结果是x，调用resolvePromise
+            // 获取成功回调函数的执行结果
+            const x = fulFilledFn(this.value);
+            // 传入 resolvePromise 集中处理
+            this.resolvePromise(p2, x, resolve, reject);
+          } catch (e) {
+            reject(e);
+          }
+        });
+      };
+
+      const rejectedMicrotask = () => {
+        queueMicrotask(() => {
+          try {
+            const x = rejectedFn(this.reason);
+            // 传入 resolvePromise 集中处理
+            this.resolvePromise(p2, x, resolve, reject);
+          } catch (e) {
+            reject(e);
+          }
+        });
+      };
+
+      if (this.status === FULFILLED) {
+        // fulFilledFn(this.value)
+        fulfilledMicrotask();
+      } else if (this.status === REJECTED) {
+        // rejectedFn(this.reason);
+        rejectedMicrotask();
+      } else if (this.status === PENDING) {
+        this.resolveCallbacks.push(fulfilledMicrotask);
+        this.rejectCallbacks.push(rejectedMicrotask);
+      }
+    });
+
+    return p2;
+  }
+
+  resolvePromise(promise2, x, resolve, reject) {
+    if (promise2 === x) {
+      throw new TypeError('Chaining cycle ');
+    }
+
+    if (typeof x === 'object' || typeof x === 'function') {
+      if (x === null) {
+        return resolve(x);
+      }
+      let then;
+
+      try {
+        then = x.then;
+      } catch (e) {
+        return reject(e);
+      }
+      if (typeof then === 'function') {
+        let called = false;
+        try {
+          then.call(
+            x,
+            (y) => {
+              if (called) return;
+              called = true;
+              this.resolvePromise(promise2, y, resolve, reject);
+            },
+            (r) => {
+              if (called) return;
+              called = true;
+              reject(r);
+            },
+          );
+        } catch (e) {
+          if (called) return;
+          reject(e);
+        }
+      } else {
+        resolve(x);
+      }
+    } else {
+      resolve(x);
+    }
+  }
+
+  static resolve(params) {
+    if (params instanceof MyPromise) {
+      return params;
+    }
+    return new MyPromise((resolve, reject) => {
+      resolve(params);
+    });
+  }
+
+  static reject(reason) {
+    return new MyPromise((resolve, reject) => {
+      reject(reason);
+    });
+  }
+
+  catch(onRejected) {
+    return this.then(null, onRejected);
+  }
+
+  static race(promises) {
+    if (!Array.isArray(promises)) {
+      throw new TypeError('arguments must be an array');
+    }
+    return new MyPromise((resolve, reject) => {
+      if (promises.length === 0) {
+        return resolve();
+      }
+      for (let i = 0; i < promises.length; i++) {
+        MyPromise.resolve(promises[i]).then(resolve, reject);
+      }
+    });
+  }
+
+  static all(promises) {
+    return new MyPromise((resolve, reject) => {
+      if (!Array.isArray(promises)) {
+        throw new TypeError('arguments must be an array');
+      }
+      if (promises.length === 0) {
+        return resolve([]);
+      }
+      let result = [];
+      let count = 0;
+      for (let i = 0; i < promises.length; i++) {
+        MyPromise.resolve(promises[i]).then((value) => {
+          result[i] = value;
+          count++;
+          if (count === promises.length) {
+            resolve(result);
+          }
+        }, reject);
+      }
+    });
+  }
+
+  static allSettled(promises) {
+    return new MyPromise((resolve, reject) => {
+      if (!Array.isArray(promises)) {
+        throw new TypeError('arguments must be an array');
+      }
+      let count = 0;
+      let result = [];
+
+      for (let i = 0; i < promises.length; i++) {
+        MyPromise.resolve(promises[i]).then(
+          (value) => {
+            result[i] = {
+              status: 'fulfilled',
+              value,
+            };
+            count++;
+            if (count === promises.length) {
+              resolve(result);
+            }
+          },
+          (reason) => {
+            result[i] = {
+              status: 'rejected',
+              reason,
+            };
+            count++;
+            if (count === promises.length) {
+              resolve(result);
+            }
+          },
+        );
+      }
+    });
+  }
+}
+```
