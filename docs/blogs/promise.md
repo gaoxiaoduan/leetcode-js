@@ -4,7 +4,6 @@ nav:
 group:
   title: js相关
   order: 1
-order: 1
 toc: content
 ---
 
