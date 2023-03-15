@@ -3,9 +3,8 @@ nav:
   title: Blog
 group:
   title: js相关
-  order: 2
-toc: content
-order: 2
+  order: 0
+order: 1
 ---
 
 # 浏览器对象

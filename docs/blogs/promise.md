@@ -3,7 +3,8 @@ nav:
   title: Blog
 group:
   title: js相关
-  order: 1
+  order: 0
+order: 0
 toc: content
 ---
 

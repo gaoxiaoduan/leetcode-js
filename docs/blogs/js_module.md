@@ -3,9 +3,9 @@ nav:
   title: Blog
 group:
   title: 工程化
-  order: 2
+  order: 1
 toc: content
-order: 1
+order: 0
 ---
 
 # 前端模块化
