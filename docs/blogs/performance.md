@@ -157,7 +157,7 @@ b = null;
 
 原理：就是在合适的时机，打上合适的时间戳，或者暴露出事件。然后通过这些时间戳之间的差值，得出⼀个耗时时间。这个耗时时间就可以反映出我们⻚⾯的相关性能。工具如下：
 
-- API[window.performance](https://developer.mozilla.org/zh-CN/docs/Web/API/Performance_API)
+- API：[window.performance](https://developer.mozilla.org/zh-CN/docs/Web/API/Performance_API)
 - 性能监测对象：[PerformanceObserver.observe()](https://developer.mozilla.org/zh-CN/docs/Web/API/PerformanceObserver/observe)
 - npm 包：[web-vitals](https://github.com/GoogleChrome/web-vitals)
 - 开发者工具：[Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
